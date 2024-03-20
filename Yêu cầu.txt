@@ -1,1 +1,58 @@
 Yêu cầu của khách hàng
+Yêu cầu cụ thể cho trang web báo:
+1. Giao diện và trải nghiệm người dùng (UI/UX):
+•	Màu sắc: Sử dụng gam màu chủ đạo là xanh dương và trắng, tạo cảm giác tin cậy, chuyên nghiệp và dễ đọc.
+•	Phông chữ: Sử dụng phông chữ Roboto, sans-serif cho phần tiêu đề và nội dung bài viết, giúp người đọc dễ dàng phân biệt.
+•	Bố cục:
+o	Trang chủ: Bố cục 3 cột, với cột chính hiển thị các bài viết mới nhất, cột phụ hiển thị các chuyên mục và bài viết nổi bật.
+o	Trang chi tiết bài viết: Bố cục 1 cột, với tiêu đề bài viết, ảnh bìa, nội dung bài viết, phần bình luận và các bài viết liên quan.
+•	Hình ảnh: Sử dụng hình ảnh chất lượng cao, có bản quyền và phù hợp với nội dung bài viết.
+•	Video: Sử dụng video ngắn, chất lượng cao để minh họa cho nội dung bài viết.
+2. Nội dung:
+•	Chủ đề: Cập nhật tin tức về các lĩnh vực:
+o	Kinh tế: Tin tức về thị trường chứng khoán, bất động sản, tài chính, doanh nghiệp...
+o	Xã hội: Tin tức về giáo dục, y tế, văn hóa, du lịch...
+o	Giải trí: Tin tức về phim ảnh, âm nhạc, gameshow...
+o	Thể thao: Tin tức về bóng đá, bóng rổ, cầu lông...
+o	Công nghệ: Tin tức về smartphone, máy tính, internet...
+•	Chất lượng bài viết:
+o	Bài viết phải được viết chính xác, súc tích, dễ hiểu và có giá trị thông tin cao.
+o	Bài viết phải được kiểm tra kỹ lưỡng trước khi đăng tải.
+•	Cập nhật nội dung:
+o	Cập nhật liên tục các tin tức mới nhất trong ngày.
+o	Cung cấp ít nhất 10 bài viết mới mỗi ngày.
+3. Tính năng:
+•	Hệ thống đăng ký và quản lý tài khoản người dùng:
+o	Người dùng có thể đăng ký tài khoản để lưu bài viết yêu thích, bình luận và chia sẻ bài viết.
+o	Quản trị viên có thể quản lý tài khoản người dùng, xóa bình luận spam và bài viết vi phạm.
+•	Cho phép người dùng bình luận, chia sẻ bài viết:
+o	Người dùng có thể bình luận và chia sẻ bài viết lên mạng xã hội.
+o	Quản trị viên có thể duyệt bình luận trước khi đăng tải.
+•	Hệ thống thông báo tin tức mới theo chủ đề quan tâm:
+o	Người dùng có thể đăng ký nhận thông báo về các chủ đề quan tâm.
+o	Hệ thống sẽ tự động gửi thông báo khi có bài viết mới về chủ đề đó.
+•	Cung cấp các tiện ích như:
+o	Dự báo thời tiết.
+o	Tỷ giá ngoại hối.
+o	Tỷ giá vàng.
+4. SEO (Tối ưu hóa công cụ tìm kiếm):
+•	Từ khóa: Sử dụng các từ khóa phù hợp trong tiêu đề, nội dung bài viết và meta description.
+•	Cấu trúc website: Sử dụng cấu trúc website chuẩn SEO, thân thiện với Google.
+•	Tốc độ tải trang: Tối ưu hóa tốc độ tải trang để website hoạt động nhanh chóng.
+•	Backlinks: Xây dựng backlinks chất lượng từ các website uy tín.
+5. Bảo mật:
+•	Sử dụng các biện pháp bảo mật tiên tiến:
+o	Mã hóa dữ liệu.
+o	Ngăn chặn truy cập trái phép.
+o	Cập nhật thường xuyên các bản vá bảo mật.
+Ngoài ra, bạn có thể tham khảo thêm một số yêu cầu khác như:
+•	Tích hợp chatbot để hỗ trợ khách hàng.
+•	Cung cấp phiên bản tiếng Anh của website.
+•	Phát triển ứng dụng di động cho website.
+
+
+
+
+
+
+
