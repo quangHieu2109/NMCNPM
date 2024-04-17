@@ -1,58 +1,121 @@
-Yêu cầu của khách hàng
-Yêu cầu cụ thể cho trang web báo:
-1. Giao diện và trải nghiệm người dùng (UI/UX):
-•	Màu sắc: Sử dụng gam màu chủ đạo là xanh dương và trắng, tạo cảm giác tin cậy, chuyên nghiệp và dễ đọc.
-•	Phông chữ: Sử dụng phông chữ Roboto, sans-serif cho phần tiêu đề và nội dung bài viết, giúp người đọc dễ dàng phân biệt.
-•	Bố cục:
-o	Trang chủ: Bố cục 3 cột, với cột chính hiển thị các bài viết mới nhất, cột phụ hiển thị các chuyên mục và bài viết nổi bật.
-o	Trang chi tiết bài viết: Bố cục 1 cột, với tiêu đề bài viết, ảnh bìa, nội dung bài viết, phần bình luận và các bài viết liên quan.
-•	Hình ảnh: Sử dụng hình ảnh chất lượng cao, có bản quyền và phù hợp với nội dung bài viết.
-•	Video: Sử dụng video ngắn, chất lượng cao để minh họa cho nội dung bài viết.
-2. Nội dung:
-•	Chủ đề: Cập nhật tin tức về các lĩnh vực:
-o	Kinh tế: Tin tức về thị trường chứng khoán, bất động sản, tài chính, doanh nghiệp...
-o	Xã hội: Tin tức về giáo dục, y tế, văn hóa, du lịch...
-o	Giải trí: Tin tức về phim ảnh, âm nhạc, gameshow...
-o	Thể thao: Tin tức về bóng đá, bóng rổ, cầu lông...
-o	Công nghệ: Tin tức về smartphone, máy tính, internet...
-•	Chất lượng bài viết:
-o	Bài viết phải được viết chính xác, súc tích, dễ hiểu và có giá trị thông tin cao.
-o	Bài viết phải được kiểm tra kỹ lưỡng trước khi đăng tải.
-•	Cập nhật nội dung:
-o	Cập nhật liên tục các tin tức mới nhất trong ngày.
-o	Cung cấp ít nhất 10 bài viết mới mỗi ngày.
-3. Tính năng:
-•	Hệ thống đăng ký và quản lý tài khoản người dùng:
-o	Người dùng có thể đăng ký tài khoản để lưu bài viết yêu thích, bình luận và chia sẻ bài viết.
-o	Quản trị viên có thể quản lý tài khoản người dùng, xóa bình luận spam và bài viết vi phạm.
-•	Cho phép người dùng bình luận, chia sẻ bài viết:
-o	Người dùng có thể bình luận và chia sẻ bài viết lên mạng xã hội.
-o	Quản trị viên có thể duyệt bình luận trước khi đăng tải.
-•	Hệ thống thông báo tin tức mới theo chủ đề quan tâm:
-o	Người dùng có thể đăng ký nhận thông báo về các chủ đề quan tâm.
-o	Hệ thống sẽ tự động gửi thông báo khi có bài viết mới về chủ đề đó.
-•	Cung cấp các tiện ích như:
-o	Dự báo thời tiết.
-o	Tỷ giá ngoại hối.
-o	Tỷ giá vàng.
-4. SEO (Tối ưu hóa công cụ tìm kiếm):
-•	Từ khóa: Sử dụng các từ khóa phù hợp trong tiêu đề, nội dung bài viết và meta description.
-•	Cấu trúc website: Sử dụng cấu trúc website chuẩn SEO, thân thiện với Google.
-•	Tốc độ tải trang: Tối ưu hóa tốc độ tải trang để website hoạt động nhanh chóng.
-•	Backlinks: Xây dựng backlinks chất lượng từ các website uy tín.
-5. Bảo mật:
-•	Sử dụng các biện pháp bảo mật tiên tiến:
-o	Mã hóa dữ liệu.
-o	Ngăn chặn truy cập trái phép.
-o	Cập nhật thường xuyên các bản vá bảo mật.
-Ngoài ra, bạn có thể tham khảo thêm một số yêu cầu khác như:
-•	Tích hợp chatbot để hỗ trợ khách hàng.
-•	Cung cấp phiên bản tiếng Anh của website.
-•	Phát triển ứng dụng di động cho website.
+Yêu cầu chi tiết về chức năng:
+1. Chức năng tìm kiếm:
 
+Cho phép tìm kiếm sách theo nhiều tiêu chí kết hợp (ví dụ: thể loại, tác giả, nhà xuất bản, giá, ngày xuất bản, ISBN).
+Cho phép tìm kiếm sách theo nội dung (ví dụ: tìm kiếm các sách có chứa từ khóa "tình yêu" trong nội dung).
+Cho phép tìm kiếm sách tương tự (ví dụ: tìm kiếm các sách có nội dung tương tự như cuốn sách "Harry Potter").
+Cho phép lọc kết quả tìm kiếm theo nhiều tiêu chí (ví dụ: thể loại, tác giả, nhà xuất bản, giá, ngày xuất bản, đánh giá).
+Cho phép sắp xếp kết quả tìm kiếm theo nhiều tiêu chí (ví dụ: giá tăng dần, giá giảm dần, ngày xuất bản mới nhất, ngày xuất bản cũ nhất, đánh giá cao nhất, đánh giá thấp nhất).
+Cho phép tìm kiếm sách bằng giọng nói.
+Cho phép tìm kiếm sách bằng hình ảnh (ví dụ: chụp ảnh bìa sách để tìm kiếm).
+2. Trang sản phẩm:
 
+Hiển thị đầy đủ thông tin về sản phẩm (ví dụ: tên sách, tác giả, nhà xuất bản, giá, ngày xuất bản, ISBN, mô tả, hình ảnh).
+Cho phép khách hàng xem đánh giá và bình luận của khách hàng khác về sản phẩm.
+Cho phép khách hàng chia sẻ thông tin về sản phẩm trên mạng xã hội.
+Cho phép khách hàng thêm sản phẩm vào giỏ hàng.
+Cho phép khách hàng mua sản phẩm ngay trên trang sản phẩm.
+3. Giỏ hàng:
 
+Hiển thị danh sách các sản phẩm mà khách hàng đã thêm vào giỏ hàng.
+Cho phép khách hàng thay đổi số lượng sản phẩm trong giỏ hàng.
+Cho phép khách hàng xóa sản phẩm khỏi giỏ hàng.
+Cho phép khách hàng cập nhật giỏ hàng.
+Cho phép khách hàng tiếp tục mua sắm hoặc tiến hành thanh toán.
+4. Thanh toán:
 
+Cho phép khách hàng thanh toán bằng nhiều phương thức khác nhau (ví dụ: thẻ tín dụng, thẻ ghi nợ, ví điện tử, chuyển khoản ngân hàng).
+Cho phép khách hàng thanh toán bằng tiền mặt khi nhận hàng (COD).
+Cho phép khách hàng lưu thông tin thanh toán để sử dụng cho những lần mua hàng sau.
+Cho phép khách hàng in hóa đơn thanh toán.
+5. Tài khoản khách hàng:
 
+Cho phép khách hàng đăng ký tài khoản mới.
+Cho phép khách hàng đăng nhập vào tài khoản đã có.
+Cho phép khách hàng cập nhật thông tin tài khoản.
+Cho phép khách hàng xem lịch sử mua hàng.
+Cho phép khách hàng theo dõi đơn hàng.
+6. Quản trị website:
 
+Cho phép quản trị viên quản lý sản phẩm (ví dụ: thêm, sửa, xóa sản phẩm, cập nhật số lượng sản phẩm).
+Cho phép quản trị viên quản lý đơn hàng (ví dụ: xem danh sách đơn hàng, cập nhật trạng thái đơn hàng, in hóa đơn).
+Cho phép quản trị viên quản lý khách hàng (ví dụ: xem danh sách khách hàng, cập nhật thông tin khách hàng).
+Cho phép quản trị viên quản lý nội dung website (ví dụ: thêm, sửa, xóa bài viết, cập nhật hình ảnh).
+Cho phép quản trị viên quản lý quảng cáo (ví dụ: thêm, sửa, xóa quảng cáo).
+Cho phép quản trị viên quản lý người dùng (ví dụ: thêm, sửa, xóa người dùng, phân quyền người dùng).
+7. Đánh giá và bình luận sách:
 
+Cho phép khách hàng đánh giá sách bằng sao (ví dụ: 1 sao, 2 sao, 3 sao, 4 sao, 5 sao).
+Cho phép khách hàng viết bình luận về sách.
+Cho phép quản trị viên duyệt bình luận trước khi hiển thị trên website.
+8. Gợi ý sách:
+
+Gợi ý sách dựa trên lịch sử tìm kiếm của khách hàng.
+Gợi ý sách dựa trên sở thích của khách hàng (ví dụ: gợi ý các sách thuộc thể loại mà khách hàng yêu thích).
+Gợi ý sách dựa trên đánh giá của khách hàng (ví dụ: gợi ý các sách được đánh giá cao bởi khách hàng khác).
+9. Chương trình khuyến mãi và giảm giá:
+
+Cho phép quản trị viên tạo chương trình khuyến mãi và giảm giá (ví dụ: giảm giá theo phần trăm, giảm giá theo số tiền, tặng quà).
+Cho phép quản trị viên đặt thời gian bắt đầu và kết thúc chương trình khuyến mãi và giảm giá.
+Cho phép quản trị viên áp dụng chương trình khuyến mãi và giảm giá cho một số sản phẩm nhất định hoặc cho tất cả sản phẩm.
+10. Blog chia sẻ thông tin về sách:
+
+Cho phép quản trị viên tạo bài viết chia sẻ thông tin về sách (ví dụ: review sách, giới thiệu sách mới, chia sẻ kinh nghiệm đọc sách).
+Cho phép quản trị viên phân loại bài viết theo chủ đề (ví dụ: thể loại, tác giả, nhà xuất bản).
+Cho phép quản trị viên cho phép khách hàng bình luận về bài viết.
+11. Kết nối với mạng xã hội:
+
+Cho phép khách hàng chia sẻ thông tin về sách trên mạng xã hội.
+Cho phép quản trị viên quản lý fanpage của website trên mạng xã hội.
+12. Chức năng tìm kiếm nâng cao:
+
+Cho phép tìm kiếm sách theo nhiều tiêu chí kết hợp (ví dụ: thể loại, tác giả, nhà xuất bản, giá, ngày xuất bản, ISBN).
+Cho phép tìm kiếm sách theo nội dung (ví dụ: tìm kiếm các sách có chứa từ khóa "tình yêu" trong nội dung).
+Cho phép tìm kiếm sách tương tự (ví dụ: tìm kiếm các sách có nội dung tương tự như cuốn sách "Harry Potter").
+13. Chức năng lọc sản phẩm:
+
+Cho phép lọc sản phẩm theo nhiều tiêu chí (ví dụ: thể loại, tác giả, nhà xuất bản, giá, ngày xuất bản, đánh giá).
+Cho phép lọc sản phẩm theo mức giá (ví dụ: lọc các sách có giá dưới 100.000 đồng).
+Cho phép lọc sản phẩm theo ngày xuất bản (ví dụ: lọc các sách được xuất bản trong năm 2023).
+Cho phép lọc sản phẩm theo đánh giá (ví dụ: lọc các sách có đánh giá 5 sao).
+14. Chức năng gợi ý sách:
+
+Gợi ý sách dựa trên lịch sử tìm kiếm của khách hàng.
+Gợi ý sách dựa trên sở thích của khách hàng (ví dụ: gợi ý các sách thuộc thể loại mà khách hàng yêu thích).
+Gợi ý sách dựa trên đánh giá của khách hàng (ví dụ: gợi ý các sách được đánh giá cao bởi khách hàng khác).
+15. Chức năng theo dõi đơn hàng:
+
+Cho phép khách hàng theo dõi tình trạng đơn hàng của mình (ví dụ: đang xử lý, đang vận chuyển, đã giao hàng).
+Cho phép khách hàng nhận thông báo về tình trạng đơn hàng qua email hoặc SMS.
+16. Chức năng quản lý kho hàng:
+
+Cho phép quản trị viên quản lý kho hàng (ví dụ: thêm, sửa, xóa sản phẩm, cập nhật số lượng sản phẩm).
+Cho phép quản trị viên theo dõi tình trạng kho hàng (ví dụ: sản phẩm nào còn hàng, sản phẩm nào hết hàng).
+17. Chức năng quản lý khách hàng:
+
+Cho phép quản trị viên quản lý thông tin khách hàng (ví dụ: thêm, sửa, xóa khách hàng).
+Cho phép quản trị viên phân loại khách hàng (ví dụ: khách hàng thân thiết, khách hàng mới).
+18. Chức năng thống kê:
+
+Cho phép quản trị viên theo dõi thống kê về hoạt động của website (ví dụ: số lượng khách truy cập, số lượng đơn hàng, doanh thu).
+Cho phép quản trị viên xuất báo cáo thống kê theo nhiều định dạng (ví dụ: PDF, Excel).
+19. Chức năng bảo mật:
+
+Website phải được xây dựng trên nền tảng công nghệ bảo mật hiện đại.
+Website phải có chứng chỉ SSL để đảm bảo an toàn cho thông tin khách hàng.
+Website phải có hệ thống chống tấn công mạng.
+20. Chức năng đa ngôn ngữ:
+
+Cho phép khách hàng lựa chọn ngôn ngữ hiển thị website (ví dụ: tiếng Việt, tiếng Anh).
+Cho phép quản trị viên thêm, sửa, xóa nội dung website bằng nhiều ngôn ngữ.
+21. Chức năng tích hợp với mạng xã hội:
+
+Cho phép khách hàng chia sẻ thông tin về sách trên mạng xã hội.
+Cho phép khách hàng đăng nhập website bằng tài khoản mạng xã hội.
+Cho phép quản trị viên quản lý fanpage của website trên mạng xã hội.
+22. Chức năng đọc sách trực tuyến:
+
+Cho phép khách hàng đọc sách trực tuyến trên website (ví dụ: đọc sách bằng trình duyệt web hoặc ứng dụng di động).
+Cho phép khách hàng đánh dấu trang sách đã đọc.
+Cho phép khách hàng điều chỉnh kích thước chữ và màu nền.
+23. Chức năng nghe sách:
