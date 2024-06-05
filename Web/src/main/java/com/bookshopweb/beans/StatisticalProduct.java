@@ -1,43 +1,65 @@
 package com.bookshopweb.beans;
 
-import java.sql.Timestamp;
-
 public class StatisticalProduct {
-    private long idProduct;
-    private String nameProduct;
+    private long productId;
+    private String productName;
 //    private Timestamp begin;
 //    private Timestamp end;
     private int importQuatity;
     private int sellQuantity;
     private double totalImportPrice;
     private double totalSellPrice;
-    private double totalProfit;
+    private int quantityRemaining;
+    private double saleRate;
+    private int quantityRefund;
 
-    public StatisticalProduct(long idProduct, String nameProduct, int importQuatity,
-                              int sellQuantity, double totalImportPrice, double totalSellPrice, double totalProfit) {
-        this.idProduct = idProduct;
-        this.nameProduct = nameProduct;
+    public StatisticalProduct(long productId, String productName, int importQuatity, int sellQuantity, double totalImportPrice, double totalSellPrice) {
+        this.productId = productId;
+        this.productName = productName;
         this.importQuatity = importQuatity;
         this.sellQuantity = sellQuantity;
         this.totalImportPrice = totalImportPrice;
         this.totalSellPrice = totalSellPrice;
-        this.totalProfit = totalProfit;
+
     }
 
-    public long getIdProduct() {
-        return idProduct;
+    public StatisticalProduct(long productId, String productName, int sellQuantity, double totalSellPrice) {
+        this.productId = productId;
+        this.productName = productName;
+        this.sellQuantity = sellQuantity;
+        this.totalSellPrice = totalSellPrice;
     }
 
-    public void setIdProduct(long idProduct) {
-        this.idProduct = idProduct;
+    public StatisticalProduct(long productId, String productName, int quantityRemaining, int sellQuantity) {
+        this.productId = productId;
+        this.productName = productName;
+        this.quantityRemaining = quantityRemaining;
+        this.sellQuantity = sellQuantity;
     }
 
-    public String getNameProduct() {
-        return nameProduct;
+    public StatisticalProduct(long productId, String productName, int importQuatity, int sellQuantity, int quantityRemaining, double saleRate) {
+        this.productId = productId;
+        this.productName = productName;
+        this.importQuatity = importQuatity;
+        this.sellQuantity = sellQuantity;
+        this.quantityRemaining = quantityRemaining;
+        this.saleRate = saleRate;
     }
 
-    public void setNameProduct(String nameProduct) {
-        this.nameProduct = nameProduct;
+    public long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(long productId) {
+        this.productId = productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public int getImportQuatity() {
@@ -72,11 +94,42 @@ public class StatisticalProduct {
         this.totalSellPrice = totalSellPrice;
     }
 
-    public double getTotalProfit() {
-        return totalProfit;
+    public int getQuantityRemaining() {
+        return quantityRemaining;
     }
 
-    public void setTotalProfit(double totalProfit) {
-        this.totalProfit = totalProfit;
+    public void setQuantityRemaining(int quantityRemaining) {
+        this.quantityRemaining = quantityRemaining;
+    }
+
+    public double getSaleRate() {
+        return saleRate;
+    }
+
+    public void setSaleRate(double saleRate) {
+        this.saleRate = saleRate;
+    }
+
+    public int getQuantityRefund() {
+        return quantityRefund;
+    }
+
+    public void setQuantityRefund(int quantityRefund) {
+        this.quantityRefund = quantityRefund;
+    }
+
+    @Override
+    public String toString() {
+        return "StatisticalProduct{" +
+                "idProduct=" + productId +
+                ", nameProduct='" + productName + '\'' +
+                ", importQuatity=" + importQuatity +
+                ", sellQuantity=" + sellQuantity +
+                ", totalImportPrice=" + totalImportPrice +
+                ", totalSellPrice=" + totalSellPrice +
+                ", quantityRemaining=" + quantityRemaining +
+                ", saleRate=" + saleRate +
+                ", quantityRefund=" + quantityRefund +
+                '}';
     }
 }

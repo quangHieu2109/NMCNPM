@@ -1,6 +1,5 @@
 package com.bookshopweb.service;
 
-
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Calendar;
@@ -19,6 +18,12 @@ public class SendMail {
     static final String password = "cgkf kchb iaxe egwh";
 //	static final String from = "timkodctk4@gmail.com";
 //	static final String password = "lbsn hmhr eixz rdmi";
+
+
+    static Session session;
+
+
+
 
     public static boolean sendEmail(String to, String verification, String userName) {
         String title = "Xác nhận tài khoản bookstore";
@@ -41,7 +46,11 @@ public class SendMail {
         };
 
         // Phiên làm việc
-        Session session = Session.getInstance(props, auth);
+
+        if(session == null){
+            session = Session.getInstance(props, auth);
+        }
+
 
         // Tạo một tin nhắn
         MimeMessage msg = new MimeMessage(session);

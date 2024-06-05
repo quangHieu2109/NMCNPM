@@ -3,18 +3,18 @@ package com.bookshopweb.servlet.client;
 import com.bookshopweb.beans.Cart;
 import com.bookshopweb.beans.CartItem;
 import com.bookshopweb.beans.User;
+import com.bookshopweb.dao.*;
 import com.bookshopweb.dto.CartItemRequest;
 import com.bookshopweb.dto.CartItemResponse;
 import com.bookshopweb.dto.CartResponse;
 import com.bookshopweb.dto.ErrorMessage;
 import com.bookshopweb.dto.SuccessMessage;
-import com.bookshopweb.dao.CartItemDAO;
-import com.bookshopweb.dao.CartDAO;
-import com.bookshopweb.dao.UserDAO;
 import com.bookshopweb.utils.JsonUtils;
 import com.bookshopweb.utils.Protector;
+import com.google.gson.JsonObject;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,15 +30,21 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @WebServlet(name = "CartItemServlet", value = "/cartItem")
+@MultipartConfig
 public class CartItemServlet extends HttpServlet {
     private final CartDAO cartDAO = new CartDAO();
     private final CartItemDAO cartItemDAO = new CartItemDAO();
     private final UserDAO userDAO = new UserDAO();
+    private final ProductDAO productDAO = new ProductDAO();
+    private final CategoryDAO categoryDAO = new CategoryDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User user = (User) request.getSession().getAttribute("currentUser");
+        String type = request.getParameter("type");
+        if(type == null){
         // Lấy userId và đối tượng user từ database theo userId này
-        long userId = Protector.of(() -> Long.parseLong(request.getParameter("userId"))).get(0L);
+        long userId = user.getId();
         Optional<User> userFromServer = Protector.of(() -> userDAO.selectPrevalue(userId)).get();
 
 
@@ -61,7 +67,8 @@ public class CartItemServlet extends HttpServlet {
                         cartItem.getProduct().getDiscount(),
                         cartItem.getProduct().getQuantity(),
                         cartItem.getProduct().getImageName(),
-                        cartItem.getQuantity()
+                        cartItem.getQuantity(),
+                        categoryDAO.getByProductId(cartItem.getProductId()).get().getName()
                 )).collect(Collectors.toList());
 
                 CartResponse cartResponse = new CartResponse(cartId, userId, cartItemResponses);
@@ -77,15 +84,26 @@ public class CartItemServlet extends HttpServlet {
             String errorMessage = "Đã có lỗi truy vấn!";
             JsonUtils.out(response, new ErrorMessage(404, errorMessage), HttpServletResponse.SC_NOT_FOUND);
         }
+        }else{
+            int totalQuantity = cartItemDAO.sumQuantityByUserId(user.getId());
+            JsonObject jsonResponse = new JsonObject();
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            jsonResponse.addProperty("totalQuantity", totalQuantity);
+            response.getWriter().write(jsonResponse.toString());
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        long userId = Long.parseLong(request.getParameter("userId"));
+        long productId = Long.parseLong(request.getParameter("productId"));
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
         // Lấy đối tượng cartItemRequest từ JSON trong request
-        CartItemRequest cartItemRequest = JsonUtils.get(request, CartItemRequest.class);
+//        CartItemRequest cartItemRequest = JsonUtils.get(request, CartItemRequest.class);
 
         // Lấy đối tượng cart từ database theo userId từ cartItemRequest
-        Optional<Cart> cartFromServer = Protector.of(() -> cartDAO.getByUserId(cartItemRequest.getUserId()))
+        Optional<Cart> cartFromServer = Protector.of(() -> cartDAO.getByUserId(userId))
                 .get(Optional::empty);
 
         // Nhận cartId từ cartFromServer (nếu đã có) hoặc cart mới (nếu chưa có)
@@ -94,7 +112,7 @@ public class CartItemServlet extends HttpServlet {
         if (cartFromServer.isPresent()) {
             cartId = cartFromServer.get().getId();
         } else {
-            Cart cart = new Cart(0L, cartItemRequest.getUserId(), Timestamp.from(Instant.now()), null);
+            Cart cart = new Cart(0L, userId, Timestamp.from(Instant.now()), null);
             cartId = Protector.of(() -> cartDAO.insert(cart,"")).get(0);
         }
 
@@ -114,13 +132,13 @@ public class CartItemServlet extends HttpServlet {
         if (cartId > 0L) {
             // Lấy đối tượng cartItem từ database theo cartId và productId của cartItemRequest
             Optional<CartItem> cartItemFromServer = Protector.of(() -> cartItemDAO.getByCartIdAndProductId(
-                    cartId, cartItemRequest.getProductId()
+                    cartId, productId
             )).get(Optional::empty);
 
             // Nếu cartItem của cartId và productId này đã có trong database
             if (cartItemFromServer.isPresent()) {
                 CartItem cartItem = cartItemFromServer.get();
-                cartItem.setQuantity(cartItem.getQuantity() + cartItemRequest.getQuantity());
+                cartItem.setQuantity(cartItem.getQuantity() + quantity);
                 cartItem.setUpdatedAt(Timestamp.from(Instant.now()));
                 Protector.of(() -> cartItemDAO.update(cartItem,""))
                         .done(r -> doneFunction.run())
@@ -129,8 +147,8 @@ public class CartItemServlet extends HttpServlet {
                 CartItem cartItem = new CartItem(
                         0L,
                         cartId,
-                        cartItemRequest.getProductId(),
-                        cartItemRequest.getQuantity(),
+                        productId,
+                        quantity,
                         Timestamp.from(Instant.now()),
                         null
                 );
@@ -145,33 +163,33 @@ public class CartItemServlet extends HttpServlet {
 
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        CartItemRequest cartItemRequest = JsonUtils.get(request, CartItemRequest.class);
 
-        long cartItemId = Protector.of(() -> Long.parseLong(request.getParameter("cartItemId"))).get(0L);
-        Optional<CartItem> cartItemFromServer = Protector.of(() -> cartItemDAO.getById(cartItemId)).get(Optional::empty);
+
+        long cartItemId = Long.parseLong(request.getParameter("cartItemId"));
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        System.out.println(quantity);
 
         String successMessage = "Đã cập nhật số lượng của sản phẩm thành công!";
         String errorMessage = "Đã có lỗi truy vấn!";
 
-        Runnable doneFunction = () -> JsonUtils.out(
-                response,
-                new SuccessMessage(200, successMessage),
-                HttpServletResponse.SC_OK);
-        Runnable failFunction = () -> JsonUtils.out(
-                response,
-                new ErrorMessage(404, errorMessage),
-                HttpServletResponse.SC_NOT_FOUND);
-
-        if (cartItemId > 0L && cartItemFromServer.isPresent()) {
-            CartItem cartItem = cartItemFromServer.get();
-            cartItem.setQuantity(cartItemRequest.getQuantity());
-            cartItem.setUpdatedAt(Timestamp.from(Instant.now()));
-            Protector.of(() -> cartItemDAO.update(cartItem,""))
-                    .done(r -> doneFunction.run())
-                    .fail(e -> failFunction.run());
-        } else {
-            failFunction.run();
+        CartItem cartItem = cartItemDAO.selectPrevalue(cartItemId);
+        cartItem.setQuantity(quantity);
+        System.out.println(cartItem);
+        int rs = cartItemDAO.update(cartItem, "");
+        int productQuantity = productDAO.selectQuantity(cartItem.getProductId());
+        JsonObject jsonResponse = new JsonObject();
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        if(rs>0){
+            response.setStatus(200);
+            jsonResponse.addProperty("msg", successMessage);
+            jsonResponse.addProperty("productQuantity", productQuantity);
+        }else{
+            response.setStatus(400);
+            jsonResponse.addProperty("msg", errorMessage);
         }
+        response.getWriter().write(jsonResponse.toString());
+
     }
 
     @Override

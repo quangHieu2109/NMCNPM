@@ -1,7 +1,12 @@
 package com.bookshopweb.dao;
 
 import com.bookshopweb.beans.AccurancyUser;
+
+import com.bookshopweb.beans.User;
+import com.bookshopweb.jdbiInterface.UserJDBI;
 import com.bookshopweb.utils.JDBCUtils;
+import com.bookshopweb.utils.JDBIUltis;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +15,23 @@ import java.sql.Timestamp;
 
 public class AccurancyDAO {
     private Connection conn = JDBCUtils.getConnection();
+
+    public int deleteByUserId(long userId) {
+        User user = JDBIUltis.getJDBI().onDemand(UserJDBI.class).getById(userId);
+        int result = 0;
+        try{
+            String sql = "delete from accuracyuser where username=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1,user.getUsername());
+            result = ps.executeUpdate();
+            ps.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
 
     public AccurancyUser getByUserName(String userName) {
         AccurancyUser result = null;
